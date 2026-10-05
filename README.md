@@ -1,44 +1,40 @@
-import random
+# CodeAlpha Hangman Game
 
-words = ["python", "computer", "programming", "developer", "keyboard"]
+## Project Description
 
-word = random.choice(words)
-guessed_word = ["_"] * len(word)
-incorrect_guesses = 0
-guessed_letters = []
+This is a simple text-based Hangman game developed using Python as part of the CodeAlpha Python Programming Internship.
 
-print("Welcome to Hangman!")
-print("Guess the word one letter at a time.")
-print("You have 6 incorrect guesses.")
+The player has to guess a hidden word one letter at a time. The game allows a maximum of 6 incorrect guesses.
 
-while incorrect_guesses < 6 and "_" in guessed_word:
-    print("\nWord:", " ".join(guessed_word))
-    print("Incorrect guesses:", incorrect_guesses)
-    print("Guessed letters:", ", ".join(guessed_letters))
+## Features
 
-    guess = input("Enter a letter: ").lower()
+- Simple text-based gameplay
+- Predefined words
+- User enters one letter at a time
+- Tracks correct and incorrect guesses
+- Maximum of 6 incorrect guesses
+- Displays the result at the end of the game
 
-    if len(guess) != 1 or not guess.isalpha():
-        print("Please enter one letter only.")
-        continue
+## Technologies Used
 
-    if guess in guessed_letters:
-        print("You already guessed that letter.")
-        continue
+- Python
+- Random module
 
-    guessed_letters.append(guess)
+## Concepts Used
 
-    if guess in word:
-        print("Good guess!")
+- Lists
+- Strings
+- Loops
+- If-else statements
+- User input
+- Random selection
 
-        for i in range(len(word)):
-            if word[i] == guess:
-                guessed_word[i] = guess
-    else:
-        incorrect_guesses += 1
-        print("Wrong guess!")
+## How to Run
 
-if "_" not in guessed_word:
-    print("\nCongratulations! You guessed the word:", word)
-else:
-    print("\nGame over! The word was:", word)
+1. Open the project in VS Code.
+2. Run `hangman.py`.
+3. Enter letters when the game asks for a guess.
+
+## Project Created For
+
+CodeAlpha Python Programming Internship
